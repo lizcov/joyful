@@ -17,7 +17,11 @@
         body {
             font-family: 'Work Sans', sans-serif;
             color: #222;
-            background: linear-gradient(244.812deg, rgba(71, 0, 104, 0.2) 12.194%, rgba(255, 255, 255, 0.15) 8.8336%, rgba(255, 255, 255, 0.1) 55.82%, rgba(71, 0, 104, 0.2) 106.86%), linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+            background: 
+                radial-gradient(circle at top right, rgba(71, 0, 104, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(71, 0, 104, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(239, 209, 253, 0.1) 0%, rgba(176, 181, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%),
+                rgb(255, 255, 255);
             min-height: 100vh;
         }
 
@@ -238,6 +242,13 @@
             padding: 40px;
             display: flex;
             align-items: flex-end;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3), 0px 4px 12px 2px rgba(0,0,0,0.15);
         }
 
         .project-card::before {
@@ -453,7 +464,7 @@
         <div class="hero-section">
             <div class="hero-circle">
                 <div class="profile-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='221' height='235'%3E%3Crect fill='%23d79cf3' width='221' height='235'/%3E%3C/svg%3E" alt="Profile">
+                    <img src="./photos/liz-headshot.png" alt="Profile">
                 </div>
             </div>
             <div class="hero-content">
@@ -475,28 +486,24 @@
                 <p class="section-description">Each project taught me something about design — and about people. I approach every opportunity with curiosity, empathy, and a commitment to creating digital spaces that serve and uplift.</p>
             </div>
             <div class="project-cards">
-                <div class="project-card">
-                    <a href="./vektor/index.html" class="project-card">
-                        <div class="project-card-bg card1">
-                            <img src="./photos/vektor-tile-cover.png xmlns='http://www.w3.org/2000/svg' width='735' height='735'%3E%3Crect fill='%23400d64' width='735' height='735'/%3E%3C/svg%3E" alt="Health SaaS">
-                        </div>
-                        <h3 class="project-title">Health SaaS<br>Redesign</h3>
-                    </a>
-                </div>
-                <div class="project-card">
-                    <a href="./research-doc/index.html" class="project-card">    
-                        <div class="project-card-bg card2">
-                            <img src="./photos/vanlife.png,%3Csvg xmlns='http://www.w3.org/2000/svg' width='615' height='615'%3E%3Crect fill='%23400d64' width='615' height='615'/%3E%3C/svg%3E" alt="Storytelling">
-                        </div>
-                        <h3 class="project-title">Storytelling<br>& Research</h3>
-                    </a>
-                </div>
-                <div class="project-card">
+                <a href="./vektor/index.html" class="project-card">
+                    <div class="project-card-bg card1">
+                        <img src="./photos/vektor-tile-cover.png" alt="Health SaaS">
+                    </div>
+                    <h3 class="project-title">Health SaaS<br>Redesign</h3>
+                </a>
+                <a href="./research-doc/index.html" class="project-card">    
+                    <div class="project-card-bg card2">
+                        <img src="./photos/vanlife.png" alt="Storytelling">
+                    </div>
+                    <h3 class="project-title">Storytelling<br>& Research</h3>
+                </a>
+                <a href="./hazel/index.html" class="project-card">
                     <div class="project-card-bg card3">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Crect fill='%23400d64' width='480' height='480'/%3E%3C/svg%3E" alt="Community App">
                     </div>
                     <h3 class="project-title">Community<br>App Audit</h3>
-                </div>
+                </a>
             </div>
            
         </div>
