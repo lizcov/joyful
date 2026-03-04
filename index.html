@@ -130,25 +130,14 @@
         .profile-image {
             width: 221px;
             height: 235px;
-            border-radius: 200px;
             overflow: hidden;
-            border: 5px solid #470068;
-            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15);
             position: relative;
         }
 
         .profile-image img {
-            width: 145.16%;
-            height: 99.62%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-        }
-
-        .profile-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(215,156,243,0.24);
-            border-radius: 200px;
         }
 
         .hero-content {
@@ -241,14 +230,17 @@
             position: relative;
             padding: 40px;
             display: flex;
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out, justify-content 0.3s ease-out;
         }
 
         .project-card:hover {
             transform: translateY(-8px);
             box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3), 0px 4px 12px 2px rgba(0,0,0,0.15);
+            border-color: white;
+            justify-content: space-between;
         }
 
         .project-card::before {
@@ -257,11 +249,21 @@
             inset: 0;
             background: rgba(64,13,100,0.8);
             z-index: 1;
+            transition: background 0.3s ease-out;
+        }
+
+        .project-card:hover::before {
+            background: #400d64;
         }
 
         .project-card-bg {
             position: absolute;
             z-index: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .project-card:hover .project-card-bg {
+            opacity: 0;
         }
 
         .project-card-bg.card1 {
@@ -301,6 +303,59 @@
             color: white;
             position: relative;
             z-index: 2;
+        }
+
+        .project-card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-description {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: white;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out;
+        }
+
+        .project-card:hover .project-description {
+            max-height: 100px;
+            opacity: 1;
+            margin-top: 8px;
+        }
+
+        .project-highlights {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: white;
+            position: relative;
+            z-index: 2;
+            text-align: right;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .project-card:hover .project-highlights {
+            max-height: 50px;
+            opacity: 1;
+        }
+
+        .project-highlights-label {
+            font-weight: 700;
+        }
+
+        .project-highlights-text {
+            color: #ffc6c6;
         }
 
         .view-more {
@@ -465,7 +520,7 @@
         <div class="hero-section">
             <div class="hero-circle">
                 <div class="profile-image">
-                    <img src="./photos/liz.heic" alt="Profile">
+                    <img src="./photos/liz.png" alt="Profile">
                 </div>
             </div>
             <div class="hero-content">
@@ -491,19 +546,40 @@
                     <div class="project-card-bg card1">
                         <img src="./photos/vektor-tile-cover.png" alt="Health SaaS">
                     </div>
-                    <h3 class="project-title">Health SaaS<br>Redesign</h3>
+                    <div class="project-card-content">
+                        <h3 class="project-title">Health SaaS Redesign</h3>
+                        <p class="project-description">Simplifying healthcare tech UX for real-world users</p>
+                    </div>
+                    <p class="project-highlights">
+                        <span class="project-highlights-label">Highlights: </span>
+                        <span class="project-highlights-text">User Interface Design</span>
+                    </p>
                 </a>
                 <a href="./research-doc/index.html" class="project-card">    
                     <div class="project-card-bg card2">
                         <img src="./photos/vanlife.png" alt="Storytelling">
                     </div>
-                    <h3 class="project-title">Storytelling<br>& Research</h3>
+                    <div class="project-card-content">
+                        <h3 class="project-title">Storytelling<br>& Research</h3>
+                        <p class="project-description">Reshaping global narratives through multimedia design</p>
+                    </div>
+                    <p class="project-highlights">
+                        <span class="project-highlights-label">Highlights: </span>
+                        <span class="project-highlights-text">Interviewing</span>
+                    </p>
                 </a>
                 <a href="./hazel/index.html" class="project-card">
                     <div class="project-card-bg card3">
                         <img src="./photos/hazel.png" alt="Community App">
                     </div>
-                    <h3 class="project-title">Community<br>App Audit</h3>
+                    <div class="project-card-content">
+                        <h3 class="project-title">Community<br>App Audit</h3>
+                        <p class="project-description">Finding hidden UX gaps to build better connections through continuous UX app audits and user interactions.</p>
+                    </div>
+                    <p class="project-highlights">
+                        <span class="project-highlights-label">Highlights: </span>
+                        <span class="project-highlights-text">User Advocacy</span>
+                    </p>
                 </a>
             </div>
            
