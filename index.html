@@ -14,6 +14,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Work Sans', sans-serif;
             color: #222;
@@ -66,42 +70,12 @@
         .nav-menu a {
             color: #222;
             text-decoration: none;
-        }
-/*
-        .toggle-section {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition: color 0.3s;
         }
 
-        .dark-mode-label {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+        .nav-menu a:hover {
+            color: #470068;
         }
-
-        .toggle-button {
-            width: 42.857px;
-            height: 20px;
-            background: white;
-            border-radius: 10px;
-            border: 0.357px solid #222;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15), 0px 1px 3px 1px rgba(0,0,0,0.15);
-        }
-
-        .toggle-circle {
-            width: 16.67px;
-            height: 16.67px;
-            background: #222;
-            border-radius: 50%;
-            position: absolute;
-            left: 2px;
-            top: 1.5px;
-            transition: left 0.3s;
-        }*/
 
         /* Banner */
         .banner {
@@ -180,6 +154,16 @@
             box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 0px rgba(0,0,0,0.15);
             display: inline-block;
             width: fit-content;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #5a008a;
+            transform: translateY(-2px);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
         }
 
         /* Divider */
@@ -365,33 +349,6 @@
             text-align: right;
         }
 
-        /* Cursor Button */
-        .cursor-button {
-            position: fixed;
-            right: 40.71px;
-            top: 729px;
-            background: white;
-            border: 0.571px solid #222;
-            border-radius: 26.667px;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0px 1.143px 2.286px 0px rgba(0,0,0,0.3), 0px 1.143px 3.429px 0px rgba(0,0,0,0.15);
-            cursor: pointer;
-        }
-
-        .butterfly-icon {
-            width: 26.286px;
-            height: 24px;
-        }
-
-        .cursor-button span {
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 0.08px;
-        }
-
         /* Contact Section */
         .contact-section {
             display: flex;
@@ -407,7 +364,7 @@
 
         .contact-form {
             width: 100%;
-            max-width: 600px;
+            max-width: 900px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -446,7 +403,7 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
         }
 
         .contact-button {
@@ -497,6 +454,10 @@
             border: 1px solid rgba(244, 67, 54, 0.3);
         }
 
+        .botcheck {
+            display: none;
+        }
+
         /* Footer */
         .footer {
             display: flex;
@@ -510,6 +471,11 @@
         .footer a {
             color: #222;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #470068;
         }
 
         @media (max-width: 1024px) {
@@ -534,6 +500,10 @@
             .project-card {
                 width: 100%;
                 max-width: 400px;
+            }
+
+            .contact-form {
+                max-width: 700px;
             }
         }
 
@@ -568,9 +538,8 @@
                 font-size: 36px;
             }
 
-            .cursor-button {
-                position: static;
-                margin: 0 auto;
+            .contact-form {
+                max-width: 100%;
             }
         }
     </style>
@@ -606,7 +575,7 @@
                 <h2 class="hero-title">Designer & Creative Strategist</h2>
                 <div class="hero-subheader">
                     <p class="hero-description">Co-creating delightful digital experiences and high-integrity products with mission-driven organizations and people.</p>
-                    <button class="cta-button">Let's Create an Impact Together</button>
+                    <a href="#contact"><button class="cta-button">Let's Create an Impact Together</button></a>
                 </div>
             </div>
         </div>
@@ -676,12 +645,10 @@
                 <p class="section-description">I'm currently open to new opportunities and would love to hear from you.</p>
             </div>
 
-
-            
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form class="contact-form" id="contactForm">
                 <input type="hidden" name="access_key" value="744afdf5-2428-441a-9ea9-e734104827c5">
                 <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
-                <input type="checkbox" name="botcheck" style="display: none;">
+                <input type="checkbox" name="botcheck" class="botcheck">
                 
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -717,20 +684,6 @@
     </div>
 
     <script>
-        function toggleDarkMode() {
-            const toggle = document.querySelector('.toggle-circle');
-            const label = document.querySelector('.dark-mode-label');
-            const isOn = toggle.style.left === '22px';
-            
-            if (isOn) {
-                toggle.style.left = '2px';
-                label.textContent = 'Dark Mode Off';
-            } else {
-                toggle.style.left = '22px';
-                label.textContent = 'Dark Mode On';
-            }
-        }
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
