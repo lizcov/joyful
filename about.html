@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Liz Covington</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: #222;
+            background: 
+                radial-gradient(circle at top right, rgba(71, 0, 104, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(71, 0, 104, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(239, 209, 253, 0.1) 0%, rgba(176, 181, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%),
+                rgb(255, 255, 255);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 80px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 39px;
+            font-weight: 600;
+            letter-spacing: -0.585px;
+            line-height: 1.2;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.08px;
+        }
+
+        .nav-menu a {
+            color: #222;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #470068;
+        }
+
+        .nav-menu a.active {
+            color: #470068;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            display: flex;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-hero-image {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(71, 0, 104, 0.2);
+            box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.15);
+        }
+
+        .about-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-hero-content {
+            flex: 1;
+        }
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.84px;
+            margin-bottom: 24px;
+        }
+
+        .about-subtitle {
+            font-size: 25px;
+            line-height: 1.5;
+            letter-spacing: -0.1875px;
+            color: #555;
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(34, 34, 34, 0.25);
+        }
+
+        /* Section Styles */
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 39px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.585px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        /* Value Cards */
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .value-card {
+            background: white;
+            border: 0.5px solid #222;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3), 0px 4px 12px 2px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.42px;
+        }
+
+        .value-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Strengths Section */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .strengths-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.42px;
+        }
+
+        .strength-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .strength-list li {
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 12px 20px;
+            background: linear-gradient(to right, rgba(239,209,253,0.3), rgba(176,181,255,0.2));
+            border-left: 4px solid #470068;
+            border-radius: 8px;
+        }
+
+        .strength-list.top-strengths li {
+            font-weight: 600;
+        }
+
+        /* Journey Section */
+        .journey-content {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+        }
+
+        .journey-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .journey-text p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .journey-highlight {
+            background: linear-gradient(to right, rgba(239,209,253,0.2), rgba(176,181,255,0.2));
+            border: 0.5px solid #222;
+            border-radius: 16px;
+            padding: 32px;
+            flex: 0 0 400px;
+        }
+
+        .journey-highlight h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.42px;
+        }
+
+        .journey-highlight p {
+            font-size: 16px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, rgba(239,209,253,0.3), rgba(176,181,255,0.3));
+            border: 0.5px solid #222;
+            border-radius: 24px;
+            padding: 64px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.84px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .cta-button {
+            background: #470068;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.08px;
+            cursor: pointer;
+            box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 0px rgba(0,0,0,0.15);
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #5a008a;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: #470068;
+            border: 2px solid #470068;
+        }
+
+        .cta-button.secondary:hover {
+            background: #f9f9f9;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-end;
+            font-size: 16px;
+            line-height: 1.5;
+            padding-top: 40px;
+        }
+
+        .footer a {
+            color: #222;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #470068;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 24px 40px 60px;
+                gap: 60px;
+            }
+
+            .value-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .strengths-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .journey-content {
+                flex-direction: column;
+            }
+
+            .journey-highlight {
+                flex: 1;
+                width: 100%;
+            }
+
+            .about-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px 24px 40px;
+                gap: 40px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+
+            .about-subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .about-hero-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <a href="portfolio.html" class="logo">Liz Covington</a>
+            <div class="nav-right">
+                <nav class="nav-menu">
+                    <a href="about.html" class="active">About</a>
+                    <a href="portfolio.html#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="about-hero">
+            <div class="about-hero-image">
+                <img src="./photos/liz-headshot.png" alt="Liz Covington">
+            </div>
+            <div class="about-hero-content">
+                <h1 class="about-title">Designing for Impact, Not Just Outcomes</h1>
+                <p class="about-subtitle">I'm a UX/UI designer who believes that meaningful design serves people and the planet — not just profit margins.</p>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Mission Section -->
+        <section class="section">
+            <h2 class="section-title">What Drives Me</h2>
+            <p class="section-intro">I'm not here to design just another app or website. I'm here to create digital experiences that contribute to a more just, peaceful, and sustainable world. My work is guided by three core commitments:</p>
+            
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Environmental Stewardship</h3>
+                    <p>Protecting and restoring our planet through design that supports sustainability and climate action.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Faith & Justice</h3>
+                    <p>Integrating spiritual values with the pursuit of equity, peace, and human dignity for all.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Holistic Growth</h3>
+                    <p>Supporting mental health, personal development, and human flourishing in every project.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- How I Work Section -->
+        <section class="section">
+            <h2 class="section-title">How I Work</h2>
+            <div class="strengths-grid">
+                <div class="strengths-column">
+                    <h3>My Top Strengths</h3>
+                    <ul class="strength-list top-strengths">
+                        <li>Strategic Thinking</li>
+                        <li>Relationship Building</li>
+                        <li>Empathy & Connection</li>
+                        <li>Developer Mindset</li>
+                    </ul>
+                </div>
+                <div class="strengths-column">
+                    <h3>What This Means for You</h3>
+                    <ul class="strength-list">
+                        <li>I see the big picture while caring deeply about individual user needs</li>
+                        <li>I bridge "hard" business goals with "soft" human considerations</li>
+                        <li>I collaborate effectively with engineers and stakeholders</li>
+                        <li>I bring both ideation and execution to the table</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Journey Section -->
+        <section class="section">
+            <h2 class="section-title">My Journey</h2>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p>I've spent 2+ years working across the full design lifecycle — from leading design for complex web applications in regulated industries to conducting in-depth user research and usability testing for climate tech startups.</p>
+                    
+                    <p>I've navigated startup culture, large 3,000+ employee organizations, and everything in between. Along the way, I've learned how to balance rapid iteration with thoughtful, user-centered design.</p>
+                    
+                    <p>But here's what matters most: I'm intentionally pivoting away from industries that don't align with my values. Life is too short — and the world's challenges too urgent — to spend my days on work that doesn't contribute to healing and justice.</p>
+                    
+                    <p>Personal challenges, including the loss of close family members, have deepened my empathy and resilience. I bring that groundedness to every project, every conversation, and every design decision.</p>
+                </div>
+                <div class="journey-highlight">
+                    <h3>Looking for Vocation, Not Just a Job</h3>
+                    <p>"I refuse to settle for 'business as usual.' I'm seeking work that contributes to a more peaceful, just, and sustainable world — one thoughtful design at a time."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Let's Build Something Meaningful</h2>
+            <p>If you're working on a mission-driven project that prioritizes people and the planet, I'd love to hear from you. Let's create digital experiences that actually matter.</p>
+            <div class="cta-buttons">
+                <a href="portfolio.html#contact" class="cta-button">Get in Touch</a>
+                <a href="portfolio.html" class="cta-button secondary">View My Work</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="sustainability.html">Sustainability</a>
+            <a href="diversity-inclusion.html">Diversity & Inclusion</a>
+            <a href="security-privacy.html">Security & Privacy</a>
+            <a href="help.html">Help</a>
+        </div>
+    </div>
+</body>
+</html>
